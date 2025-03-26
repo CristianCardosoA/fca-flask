@@ -17,7 +17,7 @@ def index():
     list.append(cris)
     list.append(lolita)
     list.append(iron)
-    return jsonify(list)
+    return jsonify(results = list)
 
 
 if __name__ == '__main__':
