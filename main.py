@@ -8,6 +8,10 @@ class Contacto:
     self.name = name
     self.phone = phone
 
+class ContactoEncoder(JSONEncoder):
+        def default(self, o):
+            return o.__dict__
+
 @app.route('/')
 def index():
     cris = Contacto("Cristian", "56565656560")
@@ -17,7 +21,7 @@ def index():
     list.append(cris)
     list.append(lolita)
     list.append(iron)
-    return jsonify(results = list)
+    return jsonify(results = ContactoEncoder().encode(list))
 
 
 if __name__ == '__main__':
